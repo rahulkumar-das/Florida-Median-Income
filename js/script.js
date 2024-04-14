@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
             image: "images/hillsborough.jpg",
             incomeData: {
                 labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
-                data: [55000, 56000, 57000, 58000, 59000, 60000]
+                data: [55000, 56000, 57000, 58000, 57000, 59000]
             }
         },
         sarasota: {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
             image: "images/sarasota.jpg",
             incomeData: {
                 labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
-                data: [60000, 61000, 62000, 63000, 64000, 65000]
+                data: [60000, 61000, 62000, 61000, 63000, 64000]
             }
         },
         charlotte: {
@@ -33,10 +33,56 @@ document.addEventListener("DOMContentLoaded", function() {
             image: "images/charlotte.jpg",
             incomeData: {
                 labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
-                data: [52000, 53000, 54000, 55000, 56000, 57000]
+                data: [52000, 53000, 54000, 55000, 54000, 56000]
+            }
+        },
+        orange: {
+            name: "Orange",
+            description: "Orange County is located in the central portion of the U.S. state of Florida. As of the 2020 census, the population was 1,421,745.",
+            image: "images/orange.jpg",
+            incomeData: {
+                labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
+                data: [57000, 59000, 58000, 60000, 59000, 61000]
+            }
+        },
+        miami_dade: {
+            name: "Miami-Dade",
+            description: "Miami-Dade County is located in the southeastern portion of the U.S. state of Florida. As of the 2020 census, the population was 2,700,794.",
+            image: "images/miami_dade.jpg",
+            incomeData: {
+                labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
+                data: [58000, 57000, 59000, 58000, 60000, 59000]
+            }
+        },
+        palm_beach: {
+            name: "Palm Beach",
+            description: "Palm Beach County is located in the southeastern part of the U.S. state of Florida. As of the 2020 census, the population was 1,496,770.",
+            image: "images/palm_beach.jpg",
+            incomeData: {
+                labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
+                data: [59000, 61000, 60000, 62000, 61000, 63000]
+            }
+        },
+        pinellas: {
+            name: "Pinellas",
+            description: "Pinellas County is located on the west-central coast of the U.S. state of Florida. As of the 2020 census, the population was 979,114.",
+            image: "images/pinellas.jpg",
+            incomeData: {
+                labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
+                data: [56000, 57000, 59000, 58000, 60000, 59000]
+            }
+        },
+        duval: {
+            name: "Duval",
+            description: "Duval County is located in the northeastern part of the U.S. state of Florida. As of the 2020 census, the population was 996,311.",
+            image: "images/duval.jpg",
+            incomeData: {
+                labels: ['2016', '2017', '2018', '2019', '2020', '2021'],
+                data: [53000, 54000, 55000, 54000, 56000, 55000]
             }
         }
     };
+    
 
     // Display county information
     var county = countyInfo[countyName];
