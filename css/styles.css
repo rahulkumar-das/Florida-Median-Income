@@ -41,37 +41,58 @@ main {
     padding: 20px;
 }
 
+
+/* Task 5 - Ankita Singh*/
 /* Dropdown styles */
 select {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    position: absolute;
+    top: 35%;
+    left: 50%; /* Move to the center horizontally */
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5"><path d="M5 5L0 0h10z" fill="%23878C99"/></svg>');
-    background-repeat: no-repeat;
-    background-position-x: 90%;
-    background-position-y: 50%;
+    background-color: white!important; /* Dropdown background color */
+    border: 1px solid white!important; /* Dropdown border color */
+    color: #4CAF50 !important; /* Dropdown text color */
+    padding: 10px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px; /* Adjust width as needed */
+}
+
+select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+select option {
     background-color: #fff;
-    transition: border-color 0.3s;
+    color: #4CAF50; !important; /* Dropdown option background color */
 }
 
-/* Dropdown hover effect */
 select:hover {
-    border-color: #aaa;
+    border-color: #999 !important;
 }
 
-/* Dropdown focus effect */
 select:focus {
     outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-color: #333 !important;
 }
 
-/* Button styles */
 button {
+    position: absolute;
+    top: 32%;
+    left: 57%; 
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -86,10 +107,63 @@ button:hover {
     background-color: #45a049;
 }
 
+
+/* Dropdown section styles */
+.dropdown-section {
+    margin-bottom: 100px; /* Add space below the dropdown */
+}
+
+/* About Florida styles */
+section h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+
+section p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px; /* Add space below the paragraph */
+}
+
+
+/* Button styles */
+/*button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}*/
+
 /* Footer styles */
-footer {
+/*footer {
     background-color: #333;
     color: #fff;
     padding: 20px;
     text-align: center;
+}*/
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
+
+footer a {
+    color: #fff;
+}
+
