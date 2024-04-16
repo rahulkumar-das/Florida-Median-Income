@@ -57,7 +57,7 @@ nav a:hover {
 /* Dropdown styles */
 select {
     position: absolute;
-    top: 40%;
+    top: 43.3%;
     left: 50%; /* Move to the center horizontally */
     transform: translate(-50%, -50%);
     display: flex;
@@ -88,7 +88,7 @@ select::after {
 
 select option {
     background-color: #fff;
-    color: #4CAF50 !important; /* Dropdown option background color */
+    color: black !important; /* Dropdown option background color */
 }
 
 select:hover {
@@ -102,8 +102,8 @@ select:focus {
 
 button {
     position: absolute;
-    top: 37%;
-    left: 57%; 
+    top: 40.2%;
+    left: 58.5%; 
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -136,7 +136,7 @@ section p {
     color: #666;
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 20px; /* Add space below the paragraph */
+    margin-bottom: 20px;
 }
 
 
@@ -216,4 +216,53 @@ footer {
 
 footer a {
     color: #fff;
+}
+
+.person h2,
+.person p {
+    margin-top: 4px;
+    margin-bottom: 5px; /* Adjust as needed */
+}
+
+/* Style for person images */
+.person img {
+    max-width: 30%;
+    max-height: 30%; /* Limit the maximum width of the images */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+}
+
+/* Style for social media icons */
+.social-icons {
+    margin-top: 5px;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Align items horizontally */
+}
+
+.social-icons a {
+    margin-right: 2%; /* Adjust the margin between icons */
+}
+
+.social-icons a img {
+    width: auto; /* Allow the width to adjust based on the height */
+    height: 100px; /* Adjust the height of the icons */
+    transition: opacity 0.3s ease; /* Add transition effect */
+}
+
+.social-icons a img:hover {
+    opacity: 1; /* Change opacity on hover */
+}
+
+/* Adjust the size of LinkedIn icon */
+.social-icons .linkedin img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Adjust the size of GitHub icon */
+.social-icons .github img {
+    width: 45px;
+    height: 45px;
 }
