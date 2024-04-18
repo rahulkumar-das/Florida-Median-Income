@@ -205,17 +205,23 @@ img {
 }
 
 footer {
-    background-color: #333;
-    color: #ffffff;
-    padding: 2px;
+    background-color: #343a40;
+    color: #fff;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 20px; /* Add vertical padding to the navbar */
+    width: 100%; /* Set navbar width to match header */
 }
 
 footer a {
     color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+footer a:hover {
+    color: #17a2b8;
 }
 
 .person h2,
@@ -304,4 +310,24 @@ footer a {
     margin-top: 50px; 
     text-align: center; 
     text-transform: uppercase; 
+}
+
+#populationChart {
+    width: 600px;
+    height: 400px;
+}
+
+/* CSS for image gallery */
+/* CSS for image gallery */
+.imageGallery {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Define two equal-width columns */
+    grid-gap: 10px; /* Add a gap between images */
+    max-width: 100%; /* Set the maximum width of the gallery */
+}
+
+.imageGallery img {
+    width: 100%; /* Make images fill their container */
+    height: 300px; /* Set a fixed height for the images */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
 }

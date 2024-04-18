@@ -18,13 +18,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // Define colors for each county
     var colors = [
         'rgba(255, 99, 132, 0.2)', // Red
-        'rgba(54, 162, 235, 0.2)',  // Blue
-        'rgba(255, 206, 86, 0.2)',  // Yellow
-        'rgba(75, 192, 192, 0.2)',  // Green
+        'rgba(54, 162, 235, 0.2)', // Blue
+        'rgba(255, 206, 86, 0.2)', // Yellow
+        'rgba(75, 192, 192, 0.2)', // Green
         'rgba(153, 102, 255, 0.2)', // Purple
-        'rgba(255, 159, 64, 0.2)',  // Orange
-        'rgba(255, 99, 132, 0.2)',  // Red (again)
-        'rgba(54, 162, 235, 0.2)'   // Blue (again)
+        'rgba(255, 159, 64, 0.2)', // Orange
+        'rgba(255, 99, 132, 0.2)', // Red (again)
+        'rgba(54, 162, 235, 0.2)'  // Blue (again)
     ];
 
     // Create the chart
@@ -42,10 +42,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        suggestedMax: Math.max(...populations) * 1.1  // Sets a maximum limit on the y-axis
                     }
                 }]
             }
