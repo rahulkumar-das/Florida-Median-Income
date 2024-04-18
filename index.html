@@ -39,6 +39,16 @@
             
             <button onclick="goToCounty()">Go</button>
         </section>
+
+        <section id="populationData">
+            <!-- Population chart will be displayed here -->
+            <h2>Population by County</h2>
+            <div class="chartContainer">
+                <canvas id="populationChart"></canvas>
+            </div>
+            <p>This chart displays the population for each county in 2024.</p>
+        </section>
+
         <section>
             <h2>About Florida</h2>
             <p>Florida is a state located in the southeastern region of the United States. It is bordered to the west by the Gulf of Mexico, to the northwest by Alabama, to the north by Georgia, to the east by the Atlantic Ocean, and to the south by the Straits of Florida. Florida is the 22nd-most extensive, the 3rd-most populous, and the 8th-most densely populated of the U.S. states.</p>
@@ -55,5 +65,10 @@
         <p><a href="about.html">About Us</a></p>
         <p><a href="contact.html">Contact Us</a></p>
     </footer>
+
+     <!-- Include Chart.js library -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <!-- Include your populationChart.js file -->
+     <script src="js\populationchart.js"></script>
 </body>
 </html>
