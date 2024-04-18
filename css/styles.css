@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    
     padding: 20px; /* Add padding to the entire page */
 }
 
@@ -23,6 +23,7 @@ header {
     padding: 20px;
     text-align: center;
     width: 100%;
+    margin-top: 0;
 }
 
 /* Main content styles */
@@ -331,3 +332,51 @@ footer a:hover {
     height: 300px; /* Set a fixed height for the images */
     object-fit: cover; /* Cover the container while maintaining aspect ratio */
 }
+
+/* weather dashboard */
+#weatherButton {
+   
+    top: 40%;
+    left: 55.5%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#weatherButton:hover {
+    background-color: #45a049;
+}
+
+#cityInput {
+    position: absolute;
+    top: 40%;
+    left: 45.5%; /* Move to the center horizontally */
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid white;
+    color: black;
+    padding: 10px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 180px; /* Adjust width as needed */
+}
+
+#cityInput::placeholder {
+    color: black; /* Placeholder text color */
+}
+
+#cityInput:focus {
+    outline: none;
+    border-color: #333;
+}
+
+
