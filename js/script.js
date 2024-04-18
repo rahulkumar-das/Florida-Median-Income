@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         document.getElementById("countyInfo").innerHTML = countyInfoHTML;
         
+        
         // Display income chart
         var ctx = document.getElementById('incomeChart').getContext('2d');
         new Chart(ctx, {
@@ -130,4 +131,5 @@ document.addEventListener("DOMContentLoaded", function() {
         // County not found, display error message
         document.getElementById("countyInfo").innerHTML = "<p>County not found.</p>";
     }
+    
 });
