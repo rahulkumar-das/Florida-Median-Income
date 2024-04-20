@@ -93,7 +93,6 @@ function deleteReviews() {
     displayReviews();
 }
 
-// Function to handle review update
 function updateReview() {
     // Get all checked checkboxes
     var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -107,14 +106,43 @@ function updateReview() {
     // Get the index of the selected review
     var selectedIndex = parseInt(checkboxes[0].value);
 
-    // Prompt user to enter updated information
-    var updatedFirstName = prompt('Enter updated first name:');
-    var updatedLastName = prompt('Enter updated last name:');
-    var updatedEmail = prompt('Enter updated email:');
-    var updatedMessage = prompt('Enter updated message:');
-    var updatedRating = parseInt(prompt('Enter updated rating (1 to 5):'));
+    // Get the selected review element
+    var selectedReviewElement = document.querySelector('input[type="checkbox"]:checked').nextElementSibling;
 
-    // Update the selected review with new information
+    // Create input fields for inline editing
+    var updatedReviewHTML = `
+        <input type="text" id="updatedFirstName" placeholder="First Name" value="${reviews[selectedIndex].firstName}">
+        <input type="text" id="updatedLastName" placeholder="Last Name" value="${reviews[selectedIndex].lastName}">
+        <input type="email" id="updatedEmail" placeholder="Email" value="${reviews[selectedIndex].email}">
+        <textarea id="updatedMessage" placeholder="Message">${reviews[selectedIndex].message}</textarea>
+        <input type="number" id="updatedRating" placeholder="Rating (1 to 5)" min="1" max="5" value="${reviews[selectedIndex].rating}">
+        <button onclick="saveUpdatedReview(${selectedIndex})">Save Changes</button>
+        <button onclick="cancelUpdate()">Cancel</button>
+    `;
+
+    // Replace the selected review with input fields for editing
+    selectedReviewElement.innerHTML = updatedReviewHTML;
+}
+
+// Function to save updated review
+// Function to save updated review
+function saveUpdatedReview() {
+    // Get the index of the selected review
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    if (checkboxes.length !== 1) {
+        alert('Please select exactly one review to update.');
+        return;
+    }
+    var selectedIndex = parseInt(checkboxes[0].value);
+
+    // Get updated values from input fields
+    var updatedFirstName = document.getElementById('updatedFirstName').value;
+    var updatedLastName = document.getElementById('updatedLastName').value;
+    var updatedEmail = document.getElementById('updatedEmail').value;
+    var updatedMessage = document.getElementById('updatedMessage').value;
+    var updatedRating = parseInt(document.getElementById('updatedRating').value);
+
+    // Update the review
     reviews[selectedIndex].firstName = updatedFirstName;
     reviews[selectedIndex].lastName = updatedLastName;
     reviews[selectedIndex].email = updatedEmail;
@@ -125,6 +153,22 @@ function updateReview() {
     displayReviews();
 }
 
+
+
+// Function to cancel update and revert to original review
+function cancelUpdate() {
+    // Get the selected review element
+    var selectedReviewElement = document.querySelector('input[type="checkbox"]:checked').nextElementSibling;
+
+    // Restore the original review content
+    var selectedIndex = parseInt(document.querySelector('input[type="checkbox"]:checked').value);
+    var originalReviewContent = `
+        ${reviews[selectedIndex].firstName} ${reviews[selectedIndex].lastName}: 
+        ${reviews[selectedIndex].message} (Rating: ${reviews[selectedIndex].rating})
+    `;
+
+    selectedReviewElement.innerHTML = originalReviewContent;
+}
 
 // Call displayReviews function initially to show any existing reviews
 displayReviews();
