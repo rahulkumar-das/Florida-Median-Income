@@ -113,11 +113,11 @@ function updateReview() {
 
     // Create input fields for inline editing
     var updatedReviewHTML = `
-        <input type="text" id="updatedFirstName" placeholder="First Name" value="${reviews[selectedIndex].firstName}">
-        <input type="text" id="updatedLastName" placeholder="Last Name" value="${reviews[selectedIndex].lastName}">
-        <input type="email" id="updatedEmail" placeholder="Email" value="${reviews[selectedIndex].email}">
-        <textarea id="updatedMessage" placeholder="Message">${reviews[selectedIndex].message}</textarea>
-        <input type="number" id="updatedRating" placeholder="Rating (1 to 5)" min="1" max="5" value="${reviews[selectedIndex].rating}">
+        <input type="text" id="updatedFirstName" placeholder="First Name" value="${reviews[selectedIndex].firstName}" class="inline-editing-box">
+        <input type="text" id="updatedLastName" placeholder="Last Name" value="${reviews[selectedIndex].lastName}" class="inline-editing-box">
+        <input type="email" id="updatedEmail" placeholder="Email" value="${reviews[selectedIndex].email}" class="inline-editing-box">
+        <textarea id="updatedMessage" placeholder="Message" class="inline-editing-box">${reviews[selectedIndex].message}</textarea>
+        <input type="number" id="updatedRating" placeholder="Rating (1 to 5)" min="1" max="5" value="${reviews[selectedIndex].rating}" class="inline-editing-box">
     `;
 
     // Replace the selected review with input fields for editing
