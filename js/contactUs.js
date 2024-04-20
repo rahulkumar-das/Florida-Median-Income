@@ -93,5 +93,38 @@ function deleteReviews() {
     displayReviews();
 }
 
+// Function to handle review update
+function updateReview() {
+    // Get all checked checkboxes
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+    // Check if exactly one review is selected
+    if (checkboxes.length !== 1) {
+        alert('Please select exactly one review to update.');
+        return;
+    }
+
+    // Get the index of the selected review
+    var selectedIndex = parseInt(checkboxes[0].value);
+
+    // Prompt user to enter updated information
+    var updatedFirstName = prompt('Enter updated first name:');
+    var updatedLastName = prompt('Enter updated last name:');
+    var updatedEmail = prompt('Enter updated email:');
+    var updatedMessage = prompt('Enter updated message:');
+    var updatedRating = parseInt(prompt('Enter updated rating (1 to 5):'));
+
+    // Update the selected review with new information
+    reviews[selectedIndex].firstName = updatedFirstName;
+    reviews[selectedIndex].lastName = updatedLastName;
+    reviews[selectedIndex].email = updatedEmail;
+    reviews[selectedIndex].message = updatedMessage;
+    reviews[selectedIndex].rating = updatedRating;
+
+    // Refresh the reviews list
+    displayReviews();
+}
+
+
 // Call displayReviews function initially to show any existing reviews
 displayReviews();
