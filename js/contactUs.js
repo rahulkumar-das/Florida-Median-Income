@@ -1,4 +1,3 @@
-
 // Function to handle form submission
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
@@ -48,15 +47,32 @@ function displayReviews() {
         // Iterate through the reviews array and display each review
         reviews.forEach(function(review, index) {
             var listItem = document.createElement('li');
-            listItem.innerHTML = `
-                <input type="checkbox" id="review${index}" value="${index}">
-                <label for="review${index}">${review.firstName} ${review.lastName}: ${review.message} (Rating: ${review.rating})</label>
-            `;
+            listItem.classList.add('review-item'); // Add a class for styling
+            
+            var checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkbox.setAttribute('id', `review${index}`);
+            checkbox.setAttribute('value', index);
+            
+            var label = document.createElement('label');
+            label.setAttribute('for', `review${index}`);
+            label.textContent = `${review.firstName} ${review.lastName}: 
+                                 ${review.message} (Rating: ${review.rating})`;
+            
+            listItem.appendChild(checkbox);
+            listItem.appendChild(label);
+            
             reviewsList.appendChild(listItem);
         });
+        
+        
+        // Show the "Delete Selected" button
+        document.getElementById('delete_button').style.display = 'inline';
     } else {
         // Hide the "Reviews" heading if there are no reviews
         document.getElementById('reviewsHeading').style.display = 'none';
+        // Hide the "Delete Selected" button
+        document.getElementById('delete_button').style.display = 'none';
     }
 }
 

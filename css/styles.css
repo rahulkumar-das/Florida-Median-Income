@@ -382,3 +382,20 @@ footer a:hover {
 #reviewsList {
     list-style-type: none;
 }
+
+#delete_button{
+    position: unset;
+}
+
+.review-item {
+    margin-bottom: 10px;
+}
+
+.review-item label {
+    display: block;
+    margin-left: 25px; /* Adjust as needed */
+}
+
+.review-item input[type="checkbox"] {
+    margin-right: 10px;
+}
