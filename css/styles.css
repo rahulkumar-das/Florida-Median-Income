@@ -387,6 +387,14 @@ footer a:hover {
     position: unset;
 }
 
+#update_button{
+    position: unset;
+}
+
+#save_button{
+    position: unset;
+}
+
 .review-item {
     margin-bottom: 10px;
 }
@@ -399,3 +407,26 @@ footer a:hover {
 .review-item input[type="checkbox"] {
     margin-right: 10px;
 }
+
+.text-box {
+    background-color: white;
+    border: 1px solid white;
+    color: black;
+    padding: 10px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 30%; /* Set width to fill container */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.inline-editing-box {
+    background-color: white;
+    border: 1px solid white; /* Use a different border color */
+    color: black;
+    padding: 8px; /* Adjust padding as needed */
+    font-size: 14px; /* Adjust font size as needed */
+    border-radius: 4px; /* Adjust border radius as needed */
+    width: calc(100% - 20px); /* Make input width fit the container with some margin */
+    margin-bottom: 10px; /* Add some margin below each element */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}   

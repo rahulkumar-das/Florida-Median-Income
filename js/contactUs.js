@@ -68,11 +68,13 @@ function displayReviews() {
         
         // Show the "Delete Selected" button
         document.getElementById('delete_button').style.display = 'inline';
+        toggleUpdateButtonVisibility();
     } else {
         // Hide the "Reviews" heading if there are no reviews
         document.getElementById('reviewsHeading').style.display = 'none';
         // Hide the "Delete Selected" button
         document.getElementById('delete_button').style.display = 'none';
+        toggleUpdateButtonVisibility();
     }
 }
 
@@ -111,17 +113,17 @@ function updateReview() {
 
     // Create input fields for inline editing
     var updatedReviewHTML = `
-        <input type="text" id="updatedFirstName" placeholder="First Name" value="${reviews[selectedIndex].firstName}">
-        <input type="text" id="updatedLastName" placeholder="Last Name" value="${reviews[selectedIndex].lastName}">
-        <input type="email" id="updatedEmail" placeholder="Email" value="${reviews[selectedIndex].email}">
-        <textarea id="updatedMessage" placeholder="Message">${reviews[selectedIndex].message}</textarea>
-        <input type="number" id="updatedRating" placeholder="Rating (1 to 5)" min="1" max="5" value="${reviews[selectedIndex].rating}">
-        <button onclick="saveUpdatedReview(${selectedIndex})">Save Changes</button>
-        <button onclick="cancelUpdate()">Cancel</button>
+        <input type="text" id="updatedFirstName" placeholder="First Name" value="${reviews[selectedIndex].firstName}" class="inline-editing-box">
+        <input type="text" id="updatedLastName" placeholder="Last Name" value="${reviews[selectedIndex].lastName}" class="inline-editing-box">
+        <input type="email" id="updatedEmail" placeholder="Email" value="${reviews[selectedIndex].email}" class="inline-editing-box">
+        <textarea id="updatedMessage" placeholder="Message" class="inline-editing-box">${reviews[selectedIndex].message}</textarea>
+        <input type="number" id="updatedRating" placeholder="Rating (1 to 5)" min="1" max="5" value="${reviews[selectedIndex].rating}" class="inline-editing-box">
     `;
 
     // Replace the selected review with input fields for editing
     selectedReviewElement.innerHTML = updatedReviewHTML;
+    toggleSaveButtonVisibility();
+    
 }
 
 // Function to save updated review
@@ -168,7 +170,40 @@ function cancelUpdate() {
     `;
 
     selectedReviewElement.innerHTML = originalReviewContent;
+    toggleSaveButtonVisibility();
 }
 
 // Call displayReviews function initially to show any existing reviews
 displayReviews();
+toggleSaveButtonVisibility();
+toggleUpdateButtonVisibility();
+
+function toggleSaveButtonVisibility() {
+    var saveButton = document.getElementById('save_button');
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+    // Check if there is exactly one selected review and whether it is being edited
+    if (checkboxes.length === 1 && isEditingReview()) {
+        saveButton.style.display = 'inline';
+    } else {
+        saveButton.style.display = 'none';
+    }
+}
+
+// Helper function to check whether a review is being edited
+function isEditingReview() {
+    var selectedReviewElement = document.querySelector('input[type="checkbox"]:checked').nextElementSibling;
+    return selectedReviewElement.querySelector('input') !== null;
+}
+
+// Function to toggle the visibility of the "Update Selected" button
+function toggleUpdateButtonVisibility() {
+    var updateButton = document.getElementById('update_button');
+    
+    // Check if there are any reviews present in the list
+    if (reviews.length > 0) {
+        updateButton.style.display = 'inline';
+    } else {
+        updateButton.style.display = 'none';
+    }
+}
