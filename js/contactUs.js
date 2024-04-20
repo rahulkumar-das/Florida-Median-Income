@@ -68,13 +68,13 @@ function displayReviews() {
         
         // Show the "Delete Selected" button
         document.getElementById('delete_button').style.display = 'inline';
-        toggleUpdateButtonVisibility();
+        toggleUpdateButtonVisibility(false);
     } else {
         // Hide the "Reviews" heading if there are no reviews
         document.getElementById('reviewsHeading').style.display = 'none';
         // Hide the "Delete Selected" button
         document.getElementById('delete_button').style.display = 'none';
-        toggleUpdateButtonVisibility();
+        toggleUpdateButtonVisibility(false);
     }
 }
 
@@ -93,6 +93,8 @@ function deleteReviews() {
     
     // Refresh the reviews list
     displayReviews();
+    toggleSaveButtonVisibility();
+    toggleUpdateButtonVisibility(true);
 }
 
 function updateReview() {
@@ -153,6 +155,7 @@ function saveUpdatedReview() {
 
     // Refresh the reviews list
     displayReviews();
+    toggleSaveButtonVisibility();
 }
 
 
@@ -176,7 +179,7 @@ function cancelUpdate() {
 // Call displayReviews function initially to show any existing reviews
 displayReviews();
 toggleSaveButtonVisibility();
-toggleUpdateButtonVisibility();
+toggleUpdateButtonVisibility(false);
 
 function toggleSaveButtonVisibility() {
     var saveButton = document.getElementById('save_button');
@@ -197,13 +200,23 @@ function isEditingReview() {
 }
 
 // Function to toggle the visibility of the "Update Selected" button
-function toggleUpdateButtonVisibility() {
-    var updateButton = document.getElementById('update_button');
+// function toggleUpdateButtonVisibility() {
+//     var updateButton = document.getElementById('update_button');
     
-    // Check if there are any reviews present in the list
-    if (reviews.length > 0) {
-        updateButton.style.display = 'inline';
+//     // Check if there are any reviews present in the list
+//     if (reviews.length > 0) {
+//         updateButton.style.display = 'inline';
+//     } else {
+//         updateButton.style.display = 'none';
+//     }
+// }
+
+function toggleUpdateButtonVisibility(isEditing) {
+    var updateButton = document.getElementById('update_button');
+    if (isEditing) {
+        updateButton.style.display = 'none'; // Hide the button when editing
     } else {
-        updateButton.style.display = 'none';
+        // Show the button only when there are reviews present
+        updateButton.style.display = reviews.length > 0 ? 'inline' : 'none';
     }
 }
