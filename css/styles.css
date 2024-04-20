@@ -387,6 +387,14 @@ footer a:hover {
     position: unset;
 }
 
+#update_button{
+    position: unset;
+}
+
+#save_button{
+    position: unset;
+}
+
 .review-item {
     margin-bottom: 10px;
 }
